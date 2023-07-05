@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-lg-5 mx-auto">
+
+<!--アプリケーションを完成させよう / 2章 / 投稿フォームを作成する-->
+<!--アプリケーションを完成させよう2 / 10章 / 投稿画面 / Controller-->
+<h3>User info</h3>
+
+
+<% if @user.errors.any? %>
+  <%= @user.errors.count %> error prohibited this obj from being saved:
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+  <%= form_with model: @user, url:update_user_path(@user.id), method: :patch do |f| %>
+
+<div>
+    <p>Name
+      <%= f.text_field :name, class: "form-control" %></p>
+</div>
+
+<div>
+    <p>Image<br>
+      <%= f.file_field :profile_image, accept: "image/*" %></p>
+</div>
+
+<div>
+    <p>Introduction
+      <%= f.text_area :introduction, class: "form-control" %></p>
+</div>
+
+<%= f.submit 'Update User', class: "btn btn-secondary" %>
+
+  <% end %>
+</div>
+</div>
+</div>

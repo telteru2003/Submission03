@@ -1,0 +1,87 @@
+  <div>
+   <%= flash[:notice] %>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+
+<div class="container px-10">
+<div class="row">
+<div class="col-lg-11">
+
+  <h3>User info</h3>
+
+<!--アプリケーションを完成させよう / 2章 / 投稿フォームを作成する-->
+<!--アプリケーションを完成させよう / 6章 / ビューで画像を表示する-->
+  <%= image_tag @book.user.get_profile_image, size:"100x100" %>
+
+<table class="table">
+  <tbody>
+    <tr>
+	    <th width="30%">name</th>
+	    <th><%= @book.user.name %></th>
+    </tr>
+    <tr>
+	    <th>introduction</th>
+	    <th><%= @book.user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+
+    <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog" aria-hidden="true"></i>
+    <% end %><br>
+
+
+
+    <!--アプリケーションを完成させよう2 / 20章 / 【共通のレイアウトを部分テンプレートでまとめよう】-->
+<%= render partial: 'books/list', locals:  { book: @book } %>
+
+  </div>
+<div class="col-8">
+
+<h2>Books</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <td></td>
+      <td>Title</td>
+      <td>Opinion</td>
+    </tr>
+  </thead>
+
+<% @books.each do |book| %>
+
+  <tbody>
+    <tr>
+      <td>
+        <!--アプリケーションを完成させよう2 / 17章-->
+        <%= link_to user_path(book.id) do %>
+          <%= image_tag book.user.get_profile_image %>
+        <% end %>
+
+      </td>
+      <td>
+
+        <%= link_to book_path(book.id) do %>
+          <%= book.title %>
+        <% end %>
+
+      </td>
+      <td>
+
+        <%= book.body %>
+
+      </td>
+    </tr>
+  </tbody>
+
+<% end %>
+
+</table>
+
+  </div>
+  </div>
+  </div>
