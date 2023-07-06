@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # アプリケーションを完成させよう2 / 21章/ バリデーションを設定する
-  before_action :authenticate_user!, except: [:top]
+  before_action :authenticate_user!, except: [:top, :about]
   # アプリケーションを完成させよう2 / 6章/ ページを表示させる
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception

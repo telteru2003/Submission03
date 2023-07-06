@@ -1,5 +1,5 @@
 # アプリケーションを完成させよう2 / 1章 / トップページの作成
-class HomesController < ApplicationController
+class HomeController < ApplicationController
   def top
   end
 

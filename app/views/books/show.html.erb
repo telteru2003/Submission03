@@ -8,13 +8,13 @@
     </div>
   <% end %>
 
-  <div class="container">
+<div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-md-3">
 
 <div class="container px-10">
 <div class="row">
-<div class="col-lg-11">
+<div class="col-lg-12">
 
   <h3>User info</h3>
 
@@ -35,7 +35,7 @@
   </tbody>
 </table>
 
-    <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+    <%= link_to edit_user_path(@book.user.id), class: "btn btn-outline-secondary btn-block" do %>
       <i class="fas fa-user-cog" aria-hidden="true"></i>
     <% end %><br>
 
@@ -44,12 +44,12 @@
     <!--アプリケーションを完成させよう2 / 20章 / 【共通のレイアウトを部分テンプレートでまとめよう】-->
 <%= render partial: 'books/list', locals:  { book: @book } %>
 
-</div>
-<div class="col-8">
+  </div>
+  <div class="col-md-8 offset-md-1">
 
 <h2>Book detail</h2>
 
-<table class="table table-striped">
+<table class="table">
     <tr>
       <td>
 
